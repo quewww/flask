@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑页</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <h3>编辑文章</h3>
+    <form action="" method="post">
+        <div class="formgroup">
+            <label for="title">标题</label>
+            <input type="text" id="title" name="title" value="{{post.title}}" required>
+        </div>
+        <div class="formgroup">
+            <label for="content">内容</label>
+            <textarea name="content" id="content" rows="10" required>{{post.content}}</textarea>
+        </div>
+        <div class="formgroup">
+            <label for="title">作者</label>
+            <input type="text" id="author" name="author" value="{{post.author}}">
+        </div>
+
+        <button type="submit">更新文章</button>
+    </form>
+    <p><a href="{{url_for('post',post_id=post.id)}}">取消</a></p>
+</body>
+</html>

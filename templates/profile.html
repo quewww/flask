@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人</title>
+</head>
+<body>
+    <div class="profile-header">
+        <h1>{{ user.username }}</h1>
+        <p class="email">邮箱：{{ user.email }}</p>
+        <p class="post-count">文章数：{{ posts|length }}</p>
+    </div>
+
+    <div class="user-posts">
+        <h2>我的文章</h2>
+        {% for post in posts %}
+        <div class="post-item">
+            <h3><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h3>
+            <p class="post-meta">发布于 {{ post.created_at.strftime('%Y-%m-%d') }}</p>
+        </div>
+        {% else %}
+        <p>还没有发布文章</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <title>详情页</title>
+</head>
+<body>
+    <a href="{{url_for('index')}}">返回首页</a>
+    <article class="post_detail">
+        <h1>{{post.title}}</h1>
+        <div class="post_meta">
+            <span>作者:{{post.author}}</span>
+            <span>发布时间:{{post.created_at.strftime('%Y-%m-%d %H:%M')}}</span>
+        </div>
+
+        <div class="post_content">{{post.content}}</div>
+    </article>
+</body>
+</html>
